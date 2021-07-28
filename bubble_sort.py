@@ -1,18 +1,23 @@
-def bubble_sort(alist):
+import random
+import time
+
+def bubble_sort(unsorted_list):
     '''Bubble Sort Algorithm'''
-    for j in range(len(alist) - 1):
-        count = 0
-        for i in range(len(alist) - 1 - j):
-            if alist[i] > alist[i + 1]:
-                alist[i], alist[i + 1] = alist[i + 1], alist[i]
-                count += 1
-        if count == 0:
-            continue
-        return count
+    for i in range(len(unsorted_list)):
+
+        for j in range(0, len(unsorted_list) - 1 - i):
+            if unsorted_list[j] > unsorted_list[j + 1]:
+                unsorted_list[j], unsorted_list[j + 1] = unsorted_list[j + 1], unsorted_list[j]
+    return unsorted_list
 
 if __name__ == '__main__':
-    li = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-    print(li)
-    count = bubble_sort(li)
-    print(li)
-    print(count)
+    l = []
+    for i in range(9999):
+        l.append(random.randint(0, 999))
+    print(l)
+    start = time.time()
+    print(bubble_sort(l))
+    end = time.time()
+    for i in range(len(l) - 1):
+        assert l[i] <= l[i + 1]
+    print(end - start)

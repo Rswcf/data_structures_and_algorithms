@@ -1,27 +1,27 @@
-def binary_search(alist, item):
+def binary_search(sorted_list, item):
 
-    n =len(alist)
+    n =len(sorted_list)
     if n > 0:
         mid = n // 2
-        if alist[mid] == item:
+        if sorted_list[mid] == item:
             return True
-        elif item < alist[mid]:
-            return binary_search(alist[:mid], item)
+        elif item < sorted_list[mid]:
+            return binary_search(sorted_list[:mid], item)
         else:
-            return binary_search(alist[mid + 1:], item)
+            return binary_search(sorted_list[mid + 1:], item)
 
     return False
 
-def binary_search_2(alist, item):
+def binary_search_2(sorted_list, item):
 
-    n = len(alist)
+    n = len(sorted_list)
     first = 0
     last = n - 1
     while first <= last:
         mid = (first + last)//2
-        if alist[mid] == item:
+        if sorted_list[mid] == item:
             return True
-        elif item < alist[mid]:
+        elif item < sorted_list[mid]:
             last = mid - 1
         else:
             first = mid + 1
