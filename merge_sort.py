@@ -1,3 +1,6 @@
+import random
+import time
+
 def merge_sort(alist):
 
     n = len(alist)
@@ -25,7 +28,15 @@ def merge_sort(alist):
 
 
 if __name__ == '__main__':
-    li = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-    print(li)
-    li = merge_sort(li)
-    print(li)
+    l = []
+    for i in range(9999):
+        l.append(random.randint(0, 999))
+    print(l)
+
+    start = time.time()
+    sorted_li = merge_sort(l)
+    print(sorted_li)
+    end = time.time()
+    for i in range(len(sorted_li) - 1):
+        assert sorted_li[i] <= sorted_li[i + 1]
+    print(end - start)
